@@ -6,9 +6,9 @@ export default class {
   constructor() {
     const localData = localStorage.getItem('content');
 
-    // check if CodeMirror is loaded
+    // checks if CodeMirror is loaded
     if (typeof CodeMirror === 'undefined') {
-      throw new Error('CodeMirror is not loaded');
+      throw new Error('CodeMirror is not loaded ');
     }
 
     this.editor = CodeMirror(document.querySelector('#main'), {
@@ -33,7 +33,7 @@ export default class {
       localStorage.setItem('content', this.editor.getValue());
     });
 
-    // Save the content of the editor when the editor itself is loses focus
+    // Saves the content of the editor 
     this.editor.on('blur', () => {
       console.log('The editor has lost focus');
       putDb(localStorage.getItem('content'));
